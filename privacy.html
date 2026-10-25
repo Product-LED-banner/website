@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#000000" />
   <title>Privacy Policy — LED Banner</title>
   <meta name="description" content="Privacy Policy for LED Banner — no servers, no accounts, no analytics. Every sign you make stays on your device." />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%23262625'/%3E%3Cg%20fill='%23f6f6f4'%20opacity='.14'%3E%3Ccircle%20cx='12'%20cy='12'%20r='3.4'/%3E%3Ccircle%20cx='32'%20cy='12'%20r='3.4'/%3E%3Ccircle%20cx='52'%20cy='12'%20r='3.4'/%3E%3Ccircle%20cx='12'%20cy='32'%20r='3.4'/%3E%3Ccircle%20cx='52'%20cy='32'%20r='3.4'/%3E%3Ccircle%20cx='12'%20cy='52'%20r='3.4'/%3E%3Ccircle%20cx='32'%20cy='52'%20r='3.4'/%3E%3Ccircle%20cx='52'%20cy='52'%20r='3.4'/%3E%3C/g%3E%3Cg%20fill='%23FFE013'%3E%3Ccircle%20cx='22'%20cy='12'%20r='3.6'/%3E%3Ccircle%20cx='22'%20cy='22'%20r='3.6'/%3E%3Ccircle%20cx='32'%20cy='22'%20r='3.6'/%3E%3Ccircle%20cx='22'%20cy='32'%20r='3.6'/%3E%3Ccircle%20cx='32'%20cy='32'%20r='3.6'/%3E%3Ccircle%20cx='42'%20cy='32'%20r='3.6'/%3E%3Ccircle%20cx='22'%20cy='42'%20r='3.6'/%3E%3Ccircle%20cx='32'%20cy='42'%20r='3.6'/%3E%3Ccircle%20cx='22'%20cy='52'%20r='3.6'/%3E%3C/g%3E%3C/svg%3E" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
   <style>
     /* ─── tokens — design/assets/led.css 的 :root 段 1:1（黑底 + LED 黄） ─── */
     :root {
@@ -151,37 +151,6 @@
       max-width: 62ch; margin: 0;
     }
     .lead strong { color: var(--fg); font-weight: 600; }
-
-    /* ─── LED marquee — the app, on the page ───────────────────────── */
-    .ledboard {
-      position: relative; overflow: hidden;
-      height: 64px; margin: clamp(28px, 4vw, 40px) 0 0;
-      background: #050505;
-      border: 1px solid var(--border); border-radius: var(--r-lg);
-    }
-    .ledboard::before {
-      content: ""; position: absolute; inset: 0;
-      background-image: radial-gradient(circle, color-mix(in oklch, var(--fg) 9%, transparent) 1.6px, transparent 1.7px);
-      background-size: 8px 8px;
-    }
-    .led-track {
-      position: absolute; inset: 0;
-      display: flex; align-items: center;
-      width: max-content;
-      animation: led-scroll 24s linear infinite;
-      -webkit-mask-image: radial-gradient(circle, #000 52%, transparent 53%);
-      mask-image: radial-gradient(circle, #000 52%, transparent 53%);
-      -webkit-mask-size: 8px 8px; mask-size: 8px 8px;
-    }
-    .led-track span {
-      font-family: var(--font-display); font-weight: 700;
-      font-size: 26px; letter-spacing: 0.08em; white-space: nowrap;
-      color: var(--accent);
-      text-shadow: 0 0 6px color-mix(in srgb, var(--accent) 55%, transparent),
-                   0 0 22px color-mix(in srgb, var(--accent) 28%, transparent);
-      padding-right: 56px;
-    }
-    @keyframes led-scroll { to { transform: translateX(-50%); } }
 
     /* the eight LED colours, as a quiet brand row in the hero */
     .led-palette { display: inline-flex; gap: 7px; align-items: center; }
@@ -388,8 +357,6 @@
       .toc ol { grid-template-columns: 1fr; }
       .brand .wm { display: none; }
       .summary, .note { flex-direction: column; gap: 14px; }
-      .led-track span { font-size: 21px; padding-right: 40px; }
-      .ledboard { height: 56px; }
       .top-btn { right: 16px; bottom: 16px; }
     }
 
@@ -400,7 +367,7 @@
         --fg: #000000; --fg-2: #1a1a1a; --muted: #555555; --border: #dddddd;
         --accent: #8a7a00; --hairline: #dddddd; --fg-soft: transparent; --accent-soft: #f7f4e6;
       }
-      .topnav, .toc, .top-btn, .crosslink, .skip, .ledboard { display: none !important; }
+      .topnav, .toc, .top-btn, .crosslink, .skip { display: none !important; }
       .doc-layout { display: block; }
       .doc-section { break-inside: avoid-page; }
       body { font-size: 12pt; }
@@ -412,7 +379,6 @@
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .led-track { animation: none; }
       *, *::before, *::after { transition-duration: 0.01ms !important; }
     }
   </style>
@@ -423,21 +389,7 @@
   <header class="topnav">
     <div class="doc-shell topnav-inner">
       <a class="brand" href="#content" aria-label="LED Banner — back to top of document">
-        <svg width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
-          <rect width="64" height="64" rx="14" fill="#262625"/>
-          <g fill="#f6f6f4" opacity=".14">
-            <circle cx="12" cy="12" r="3.4"/><circle cx="32" cy="12" r="3.4"/><circle cx="52" cy="12" r="3.4"/>
-            <circle cx="12" cy="32" r="3.4"/><circle cx="52" cy="32" r="3.4"/>
-            <circle cx="12" cy="52" r="3.4"/><circle cx="32" cy="52" r="3.4"/><circle cx="52" cy="52" r="3.4"/>
-          </g>
-          <g fill="#FFE013">
-            <circle cx="22" cy="12" r="3.6"/>
-            <circle cx="22" cy="22" r="3.6"/><circle cx="32" cy="22" r="3.6"/>
-            <circle cx="22" cy="32" r="3.6"/><circle cx="32" cy="32" r="3.6"/><circle cx="42" cy="32" r="3.6"/>
-            <circle cx="22" cy="42" r="3.6"/><circle cx="32" cy="42" r="3.6"/>
-            <circle cx="22" cy="52" r="3.6"/>
-          </g>
-        </svg>
+        <img src="assets/app-icon.png" width="28" height="28" alt="" aria-hidden="true" />
         <b>LED Banner</b>
         <span class="wm">Legal</span>
       </a>
@@ -462,12 +414,6 @@
           <span class="led-palette" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
         </p>
         <p class="lead">This Privacy Policy explains how Zhuoqian Wang (“we”, “us”), an individual developer, handles information when you use LED Banner (the “App”), which turns your iPhone screen into a scrolling LED sign you can also show as a StandBy bedside display.</p>
-        <div class="ledboard" aria-hidden="true">
-          <div class="led-track">
-            <span>YOUR DATA STAYS ON YOUR DEVICE ✦ NO ACCOUNTS ✦ NO ANALYTICS ✦ NO TRACKING ✦ NO ADS ✦&nbsp;</span>
-            <span>YOUR DATA STAYS ON YOUR DEVICE ✦ NO ACCOUNTS ✦ NO ANALYTICS ✦ NO TRACKING ✦ NO ADS ✦&nbsp;</span>
-          </div>
-        </div>
       </div>
     </section>
 

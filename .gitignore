@@ -4,3 +4,5 @@
 !*.html
 !vercel.json
 !*/
+# 两页引用的 App 真实图标（topnav 品牌位 + favicon）
+!assets/*.png
